@@ -89,7 +89,7 @@ public class AngularTest {
 		inputElement.sendKeys("BrowserStack");
 		inputElement.submit();
 
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		Thread.sleep(10000);
 
 		WebElement textElement = driver.findElement(By.tagName("h1"));
 		Assert.assertEquals("Hello, BROWSERSTACK!", textElement.getText());
