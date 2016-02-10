@@ -92,6 +92,6 @@ public class AngularTest {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
 		WebElement textElement = driver.findElement(By.tagName("h1"));
-		Assert.assertEquals("Hello, BrowserStack!", textElement.getText());
+		Assert.assertEquals("Hello, BROWSERSTACK!", textElement.getText());
 	}
 }
