@@ -34,7 +34,7 @@ public class AngularTest {
 			protected Env createEnv() {
 				return Env.prod();
 			}
-		}.configure(new WebConfiguration()).startOnRandomPort();
+		}.configure(new WebConfiguration()).start(3000);
 
 		String browserstackUsername = System.getenv(ENV_USERNAME);
 		String browserstackAccessKey = System.getenv(ENV_ACCESSKEY);
