@@ -86,12 +86,12 @@ public class AngularTest {
 
 		WebElement inputElement = driver.findElement(By.id("name"));
 		inputElement.clear();
-		inputElement.sendKeys("browserstack");
+		inputElement.sendKeys("browsers");
 		inputElement.submit();
 
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 
 		WebElement textElement = driver.findElement(By.tagName("h1"));
-		Assert.assertEquals("Hello, BROWSERSTACK!", textElement.getText());
+		Assert.assertEquals("Hello, BROWSERS!", textElement.getText());
 	}
 }
