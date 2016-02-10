@@ -86,7 +86,7 @@ public class AngularTest {
 
 		WebElement inputElement = driver.findElement(By.id("name"));
 		inputElement.clear();
-		inputElement.sendKeys("BrowserStack");
+		inputElement.sendKeys("browserstack");
 		inputElement.submit();
 
 		Thread.sleep(10000);
