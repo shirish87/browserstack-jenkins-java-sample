@@ -53,6 +53,8 @@ public class AngularTest {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("build", "Sample Jenkins Project");
+		caps.setCapability("browserstack.local", "true");
+		caps.setCapability("browserstack.debug", "true");
 
 		if (jsonBrowsers.length() > 0) {
 			JSONObject browser = jsonBrowsers.getJSONObject(0);
