@@ -1,0 +1,29 @@
+---
+layout: default
+title: Hello World
+ng-app: demo
+---
+
+[[webjar 'bootstrap.min.css']]
+[[css 'style']]
+
+<div class="container" ng-controller="DemoController as demo">
+    <div class="jumbotron">
+        <h1 ng-cloak>{{demo.greeting}}</h1>
+
+        <p>
+            This is a sample of application with
+            <a href="https://github.com/CodeStory/fluent-http">fluent-http</a>
+            and
+            <a href="https://angularjs.org/">AngularJs</a>.
+        </p>
+
+        <form>
+            <input id="name" ng-model="demo.name" ng-change="demo.refresh()" autofocus placeholder="Your name here"/>
+        </form>
+
+    </div>
+</div>
+
+[[webjar 'angular.min.js']]
+[[script 'app']]
