@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URL;
+import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
 public class AngularTest {
@@ -62,10 +63,14 @@ public class AngularTest {
 
 		if (jsonBrowsers.length() > 0) {
 			JSONObject browser = jsonBrowsers.getJSONObject(0);
-			caps.setCapability("browser", browser.getString("browser"));
-			caps.setCapability("browser_version", browser.getString("browser_version"));
-			caps.setCapability("os", browser.getString("os"));
-			caps.setCapability("os_version", browser.getString("os_version"));
+			Iterator<?> keys = browser.keys();
+
+			while (keys.hasNext()) {
+				String key = (String) keys.next();
+				if (browser.get(key) instanceof String) {
+					caps.setCapability(key, (String) browser.get(key));
+				}
+			}
 		} else {
 			caps.setCapability("browser", "Firefox");
 			caps.setCapability("browser_version", "43.0");
