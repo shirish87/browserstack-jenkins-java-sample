@@ -21,6 +21,7 @@ public class AngularTest {
 	private static final String ENV_USERNAME = "BROWSERSTACK_USER";
 	private static final String ENV_ACCESSKEY = "BROWSERSTACK_ACCESSKEY";
 	private static final String ENV_BROWSERS = "BROWSERSTACK_BROWSERS";
+	private static final String ENV_LOCAL = "BROWSERSTACK_LOCAL";
 
 	private static final String HUB_ENDPOINT = "https://%s:%s@hub.browserstack.com/wd/hub";
 
@@ -49,11 +50,14 @@ public class AngularTest {
 			throw new IllegalArgumentException("Invalid environment variable value for " + ENV_BROWSERS);
 		}
 
+		String isLocalEnabled = System.getenv(ENV_LOCAL);
+		isLocalEnabled = (isLocalEnabled != null && isLocalEnabled.trim().equals("1")) ? "true" : "false";
+
 		JSONArray jsonBrowsers = new JSONArray(browserstackBrowsers);
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("build", "Sample Jenkins Project");
-		caps.setCapability("browserstack.local", "true");
+		caps.setCapability("browserstack.local", isLocalEnabled);
 		caps.setCapability("browserstack.debug", "true");
 
 		if (jsonBrowsers.length() > 0) {
