@@ -72,7 +72,7 @@ public class AngularTest {
 		caps.setCapability("browserstack.debug", "true");
 
 		for (int i = 0; i < jsonBrowsers.length(); i++) {
-			JSONObject browser = jsonBrowsers.getJSONObject(0);
+			JSONObject browser = jsonBrowsers.getJSONObject(i);
 			Iterator<?> keys = browser.keys();
 
 			while (keys.hasNext()) {
