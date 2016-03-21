@@ -83,7 +83,7 @@ public class AngularTest {
 			}
 
 			String endpoint = String.format(HUB_ENDPOINT, browserstackUsername, browserstackAccessKey);
-			System.out.println("Running on " + browser.getString("browser"));
+			System.out.println("Running on " + browser.toString());
 			WebDriver driver = new RemoteWebDriver(new URL(endpoint), caps);
 
 			driver.get("http://localhost:" + webServer.port());
